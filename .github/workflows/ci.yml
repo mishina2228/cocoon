@@ -32,8 +32,9 @@ jobs:
         with:
           ruby-version: "${{ matrix.ruby-version }}"
 #          bundler-cache: true
+      - name: Install Bundler v1.7.3
+        run: gem install bundler -v 1.7.3
+      - name: bundle install
+        run: BUNDLER_VERSION=1.7.3 bundle install
       - name: Run spec
-        run: |
-          gem install bundler -v 1.7.3
-          BUNDLER_VERSION=1.7.3 bundle install
-          bundle exec rake
+        run: BUNDLER_VERSION=1.7.3 bundle exec rake

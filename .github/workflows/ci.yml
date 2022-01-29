@@ -25,14 +25,15 @@ jobs:
             gemfile: gemfiles/Gemfile.rails-4-r2
     env:
       BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
-#      BUNDLER_VERSION: 1.7.3
+      BUNDLER_VERSION: 1.7.3
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "${{ matrix.ruby-version }}"
 #          bundler-cache: true
-      - run: |
+      - name: Run spec
+        run: |
           gem install bundler -v 1.7.3
           bundle install
           bundle exec rake

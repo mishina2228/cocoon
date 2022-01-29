@@ -1,28 +1,30 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 
 group :development, :test do
-  gem "rails", "~> 4.2"
-  gem "sqlite3", '1.3.13'
+  gem "rails"
+  gem "sqlite3"
   gem "json_pure"
   gem "jeweler", git: 'git@github.com:technicalpickles/jeweler'
   # gem "jeweler", "~> 2.3"
-  gem "rspec-rails", "~> 3.0.0"
-  gem "rspec",       "~> 3.0.0"
-  gem "actionpack",  ">=4.0.0"
+  gem "rspec-rails"
+  gem "rspec"
+  gem "actionpack"
   gem "simplecov", :require => false
-  gem "rake", "~> 10.1"
+  gem "rake"
 
   gem 'nokogiri'
 
   gem "generator_spec"
 
-  platforms :rbx do
-    gem 'rubysl'
-    gem 'rubysl-test-unit'
-    gem 'psych', '~> 2.2'
-    gem 'racc'
-    gem 'rubinius-developer_tools'
+  if RUBY_ENGINE == 'rbx'
+    platforms :rbx do
+      gem 'rubysl'
+      gem 'rubysl-test-unit'
+      gem 'psych', '~> 2.2'
+      gem 'racc'
+      gem 'rubinius-developer_tools'
+    end
   end
 
 end

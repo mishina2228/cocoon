@@ -23,17 +23,24 @@ jobs:
           - gemfiles/Gemfile.rails-5.2
           - gemfiles/Gemfile.rails-6.1
           - Gemfile
+        bundler:
+          - default
         include:
           - ruby-version: '2.1'
             gemfile: gemfiles/Gemfile.rails-3.2
+            bundler: '1.17.3'
           - ruby-version: '2.1'
             gemfile: gemfiles/Gemfile.rails-4.2
+            bundler: '1.17.3'
           - ruby-version: '2.2'
             gemfile: gemfiles/Gemfile.rails-4.2
+            bundler: '1.17.3'
           - ruby-version: '2.3'
             gemfile: gemfiles/Gemfile.rails-4.2
+            bundler: '1.17.3'
           - ruby-version: '2.4'
             gemfile: gemfiles/Gemfile.rails-5.2
+            bundler: default
         exclude:
           - ruby-version: '2.5'
             gemfile: Gemfile
@@ -52,7 +59,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "${{ matrix.ruby-version }}"
-          bundler: 1.17.3
+          bundler: "${{ matrix.bundler }}"
           bundler-cache: true
       - name: Run spec
         run: bundle exec rake

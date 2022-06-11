@@ -1,4 +1,4 @@
-# Configure Rails Envinronment
+# Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
 # only start SimpleCov on ruby 1.9.x

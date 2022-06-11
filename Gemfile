@@ -4,8 +4,7 @@ group :development, :test do
   gem "rails"
   gem "sqlite3"
   gem "json_pure"
-  gem "jeweler", git: 'git@github.com:technicalpickles/jeweler'
-  # gem "jeweler", "~> 2.3"
+  gem "jeweler", "~> 2.3"
   gem "rspec-rails"
   gem "rspec"
   gem "simplecov", require: false
